@@ -1,0 +1,85 @@
+{
+    "common": {
+        "viewer": {
+            "copy_link": "Permanente Links kopieren",
+            "copied": "Der permanente Link wurde kopiert."
+        },
+        "indexes": {
+            "composer_ss": "Komponisten",
+            "interpreter_ss": "Interpreten",
+            "place_s": "Orte",
+            "collection_s": "Sammlungen",
+            "series_s": "Serien"
+        },
+        "collections": {
+            "ch_gc": "Genf Conservatoire",
+            "ch_gm": "Genf La Musicale",
+            "ch_lac": "Lausanne",
+            "ch_famb": "Basel"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Seiten",
+                "items": {
+                    "home": "Hauptseite",
+                    "about": "Über uns",
+                    "fundsLosanne": "Sammlung Lausanne",
+                    "fundsGeneve": "Sammlung Genf",
+                    "collectionsBasel": "Sammlung Basel",
+                    "help": "Hilfe"
+                }
+            },
+            "languages": {
+                "label": "Sprachen"
+            }
+        }
+    },
+    "contextBar": {
+        "collections": "Sammlungen",
+        "dateRange": "Datum"
+    },
+    "search": {
+        "path": "Suche",
+        "nav": {
+            "prev": "« Vorige Seite",
+            "next": "Nächste Seite »",
+            "count": "{{from}} - {{to}} von {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Geben Sie Ihre Suchbegriffe hier ein...",
+            "select_placeholder": "Indexsuche",
+            "submit": "Suche"
+        },
+        "actions": {
+            "pin": "Dieses Dokument merken",
+            "unpin": "Aus der Merkliste entfernen",
+            "back": "Zurück"
+        },
+        "facets": {
+            "more": "Mehr",
+            "less": "Weniger",
+            "filter": "Filter"
+        },
+        "noResults": "Keine Resultate gefunden"
+    },
+    "browse": {
+        "path": "Stöbern",
+        "form": {
+            "select_placeholder": "Wählen Sie einen Index",
+            "submit": "Stöbern"
+        },
+        "prev": "« Voriger",
+        "next": "Nächster »",
+        "search": "Suchen",
+        "back": "Zurück",
+        "noResults": "Kein Index verfügbar",
+        "noSearchResults": "Dieser Index ist unter den aktuellen Analyse-Parametern nicht mehr verfügbar"
+    },
+    "pinned": {
+        "path": "Archiv",
+        "header": "Sie haben {{count}} Dokumente in der Merkliste",
+        "header_plural": "Sie haben {{count}} Dokumente",
+        "noPins": "Sie haben noch keine Dokumente in der Merkliste",
+        "purge": "Alle entfernen"
+    }
+}

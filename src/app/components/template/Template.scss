@@ -1,0 +1,185 @@
+@import './Palette.scss';
+
+.template {
+
+    &-root {
+        padding: 70px 0 0 70px;
+
+        .navbar {
+            &-root {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 70px;
+                border-bottom:2px solid $light-gray-e;
+                background: $white;
+                z-index: 2;
+                padding: 1em;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &-menu {
+                a {
+                    color: #515151;
+                    font-weight: 600;
+                    font-size: .8rem;
+                    padding: 0 1.5em;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .sidebar {
+            &-root {
+                position: fixed;
+                left: 0;
+                top: 70px;
+                width: 70px;
+                bottom: 0;
+                background: $navbar-back-color;
+                z-index: 2;
+
+                .clearButton {
+                    &-root {
+                        display:flex;
+                        width: 70px;
+                        height: 70px;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+
+                            path {
+                                fill: $white;
+                            }
+                        }
+
+                        .badge {
+                            position: absolute;
+                            top: 15px;
+                            right: 13px;
+                            background: red;
+                            color: #fff;
+                            font-weight: 600;
+                            display: inline-flex;
+                            width: 16px;
+                            height: 16px;
+                            font-size: .65rem;
+                            border-radius: .25rem;
+                            align-items: center;
+                            justify-content: center;
+
+                        }
+                    }
+
+
+                    &-root:hover, 
+                    &__active {
+                        background: $active-action-button-background;
+                    }
+                }
+            }
+        }
+
+        .clearButton {
+            &-root {
+                background: none;
+                border: none;
+                cursor: pointer;
+                outline: none;
+            }
+        }
+    
+        .contextBar {
+            &-root {
+                width: 320px;
+                top: 70px;
+                left: -245px;
+                position: fixed;
+                background: $light-gray-e;
+                bottom: 0;
+                padding: 2em;
+                z-index: 1;
+            
+                transition: left .25s ease-in-out;
+            }
+            
+            &-driver {
+                display: flex;
+                position: absolute;
+                right: -20px;
+                top: 3px;
+                width: 20px;
+                height: 30px;
+                background: $light-gray-e;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 0 5px 5px 0;
+
+                &:after {
+                    margin: 0 .5em;
+                    color: $black;
+                    border-left: 4px dashed;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    display: inline-block;
+                    content: "";
+                    position: absolute;
+                    top: 10px;
+                    right: 3px;
+                }
+            }
+
+            &__visible {
+                left: 70px;
+
+                .contextBar-driver {
+                    &:after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &-content {
+        padding: 2em 4em;
+        transition: margin-left .25s ease-in-out;
+
+        &__with{
+            
+            &-contextBar {
+                margin-left: 320px;
+
+                @media screen and (max-width: 1400px) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -200px;
+    visibility: hidden;
+}
+
+
+a,
+a:visited,
+a:active {
+    color: $links;
+}
+
+
+.small {
+    font-size: .8rem;
+}

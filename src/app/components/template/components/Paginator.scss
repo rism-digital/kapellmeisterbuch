@@ -1,0 +1,47 @@
+@import '../Palette.scss';
+
+.Paginator { 
+    &-root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            display: inline-block;
+            padding: .5rem .75rem;
+            border-radius: 5px;
+            border :1px solid #eee;
+            margin: 4px;
+            text-align: center;
+            background: transparent;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+
+            :hover {
+                background: #efefef;
+                color: #000;
+                text-decoration: none;
+            }
+
+            &.current {
+                background: $active-action-button-background;
+                color: white;
+
+                :hover {
+                    background: $active-action-button-background;
+                    color: white;
+                }
+            }
+        }
+
+    }
+    
+    &-separator {
+        display: inline-block;
+        width: 25px;
+        margin: 0 8px;
+        height: 0px;
+        border-bottom: 6px dotted #eee;
+    }
+}

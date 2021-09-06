@@ -1,0 +1,23 @@
+.documentDetail {
+    &-wrapper {
+        display: flex;
+    }
+
+    &-divaWrapper {
+        width: 100%;
+    }
+
+    &-metadata {
+        padding: 2em;
+        min-width: 300px;
+        width: 30%;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        margin: -3.1em -4em -4em 2em;
+        border-left: 1px solid #eee;
+
+        > div {
+            padding: 2em 0;
+        }
+    }
+}

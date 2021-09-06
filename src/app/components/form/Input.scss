@@ -1,0 +1,20 @@
+@import 'src/app/components/template/Palette.scss';
+
+.input {
+    &-root {
+
+    }
+    
+    &__search {
+        font-size: 1.2rem;
+        padding: .2em;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $light-gray-d;
+        outline: none;
+
+        &:focus {
+            border-bottom-color: $action-button-background;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@import 'src/app/components/template/Palette.scss';
+
+
+.collapsible {
+    &-root {
+        
+    }
+
+    &-header {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+        margin-bottom: .5em;
+
+        &-caption::before {
+            content: '';
+            display: inline-block;
+            position: relative;
+            transform: rotate(135deg);
+            border-top: 3px solid #323232;
+            border-right: 3px solid #323232;
+            width: 6px;
+            height: 6px;
+            margin-right: 10px;
+            margin-top: -3px;
+            margin-bottom: 3px;
+        }
+    }
+
+    &-body {
+        max-height: 0;
+        height: auto;
+        transition: max-height .2s ease-in-out, padding .2s ease-in-out;
+        overflow-y: hidden;
+
+        > div {
+            padding: .25rem 0;
+            margin-bottom: 1px;
+            border-radius: .25rem;
+
+            li {
+                padding: .5em;
+
+                a {
+                    float: right;
+                }
+            }
+
+            li:hover{
+                background: $light-gray-e !important;
+            }
+        }
+    }
+
+    &__collapsed {
+        &-finished {
+            .collapsible {
+                &-body {
+                    overflow-y: auto;
+                }
+            }   
+        }
+    }
+
+}
+
+.collapsible__collapsed > .collapsible-header .collapsible-header-caption::before { 
+    content: '';
+    display: inline-block;
+    position: relative;
+    transform: rotate(90deg);
+    border-top: 0;
+    border-right: 3px solid #323232;
+    width: 7px;
+    height: 10px;
+    margin-right: 9px;
+    margin-top: -6px;
+    margin-bottom: 5px;
+}
+
+
+.collapsible__collapsed > .collapsible-body {
+    max-height: none;
+}
+
+.collapsible__collapsed > .collapsible-body > .collapsible__collapsed > .collapsible-body{
+    max-height: 500px;
+}
+
+.collapsible-root .collapsible-body > .collapsible-root {
+    margin-left: 1.5em;
+}

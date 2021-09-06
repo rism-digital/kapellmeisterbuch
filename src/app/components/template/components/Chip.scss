@@ -1,0 +1,29 @@
+@import 'src/app/components/template/Palette.scss';
+
+.chip {
+
+    &-root {
+        display: inline-block;
+        padding: 0 16px 0 25px;
+        font-size: .9rem;
+        line-height: 32px;
+        border-radius: 25px;
+        background-color: $action-button-background;
+        color: $white;
+        margin: 5px 5px 0 0;
+    }
+    
+    &-closebtn {
+        padding-left: 10px;
+        color: $white;
+        float: right;
+        font-weight: bold;
+        font-size: 22px;
+        cursor: pointer;
+        opacity: .8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.fixedHeader {
+    position: fixed;
+    padding: 2em 4em 1em 4em;
+    margin: -2em -4em 0 -4em;
+    background: linear-gradient(to bottom, #f0f0f0 0%,rgba(255,255,255,1) 85%,rgba(245,245,255,0) 100%);
+    transition: width .25s ease-in-out;
+    width: calc(100% - 70px);
+
+    &__with {
+        &-contextBar {
+            width: calc(100% - 390px);
+
+            @media screen and (max-width: 1400px) {
+                width: calc(100% - 70px);
+            }
+        }
+    }
+}

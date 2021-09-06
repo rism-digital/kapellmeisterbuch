@@ -1,0 +1,88 @@
+{
+    "common": {
+        "viewer": {
+            "copy_link": "Copy permalink",
+            "copied": "Permalink copied in the clipboard"
+        },
+        "indexes": {
+            "composer_ss": "Composers",
+            "interpreter_ss": "Interpreters",
+            "place_s": "Places",
+            "collection_s": "Collections",
+            "series_s": "Series"
+        },
+        "collections": {
+            "ch_gc": "Geneva Conservatory",
+            "ch_gm": "Geneva La Musicale",
+            "ch_lac": "Lausanne",
+            "ch_famb": "Basel"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pages",
+                "items": {
+                    "home": "Home",
+                    "about": "About",
+                    "fundsLosanne": "Lausanne Collection",
+                    "fundsGeneve": "Geneva Collection",
+                    "collectionsBasel": "Basel Collections",
+                    "help": "Help"
+                }
+            },
+            "languages": {
+                "label": "Languages"
+            }
+        }
+    },
+    "contextBar": {
+        "collections": "Collections",
+        "dateRange": "Date Range"
+    },
+    "search": {
+        "path": "Search",
+        "nav": {
+            "prev": "« Previous page",
+            "next": "Next page »",
+            "count": "Found {{count}} results"
+        },
+        "form": {
+            "search_placeholder": "Input your search terms here...",
+            "select_placeholder": "Search by index",
+            "submit": "Search",
+            "loading": "Loading.."
+        },
+        "actions": {
+            "pin": "Pin this document",
+            "unpin": "Remove from pinned",
+            "back": "Go back",
+            "go": "Go"
+        },
+        "facets": {
+            "more": "Show more",
+            "less": "Show less",
+            "filter": "Filter"
+        },
+        "noResults": "No results found"
+    },
+    "browse": {
+        "path": "Browse",
+        "form": {
+            "select_placeholder": "Select index",
+            "submit": "Browse",
+            "loading": "Loading.."
+        },
+        "prev": "« Previous",
+        "next": "Next »",
+        "search": "Search",
+        "back": "Go back",
+        "noResults": "No index available",
+        "noSearchResults": "This index is no longer available within current analysis parameters"
+    },
+    "pinned": {
+        "path": "Archive",
+        "header": "You have pinned {{count}} document",
+        "header_plural": "You have pinned {{count}} documents",
+        "noPins": "No documents pinned yet",
+        "purge": "Remove all"
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "common": {
+        "viewer": {
+            "copy_link": "Copier les lien permanent",
+            "copied": "Le lien permanent a été copié"
+        },
+        "indexes": {
+            "composer_ss": "Compositeurs",
+            "interpreter_ss": "Interprètes",
+            "place_s": "Lieux",
+            "collection_s": "Collections",
+            "series_s": "Séries"
+        },
+        "collections": {
+            "ch_gc": "Genève Conservatoire",
+            "ch_gm": "Genève La Musicale",
+            "ch_lac": "Lausanne",
+            "ch_famb": "Bâle"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pages",
+                "items": {
+                    "home": "Accueil",
+                    "about": "À propos",
+                    "fundsLosanne": "Collection Lausanne",
+                    "fundsGeneve": "Collection Genève",
+                    "collectionsBasel": "Collection Bâle",
+                    "help": "Aide"
+                }
+            },
+            "languages": {
+                "label": "Langages"
+            }
+        }
+    },
+    "contextBar": {
+        "collections": "Collections",
+        "dateRange": "Période"
+    },
+    "search": {
+        "path": "Recherche",
+        "nav": {
+            "prev": "« Page précédente",
+            "next": "Page suivante »",
+            "count": "{{from}} - {{to}} de {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Saisissez ici vos termes de recherche...",
+            "select_placeholder": "Recherche par index",
+            "submit": "Search"
+        },
+        "actions": {
+            "pin": "Épinglez ce document",
+            "unpin": "Retirer de l'épingle",
+            "back": "Retournez"
+        },
+        "facets": {
+            "more": "Afficher plus",
+            "less": "Afficher moins",
+            "filter": "Filtrez"
+        },
+        "noResults": "Aucun résultat trouvé"
+    },
+    "browse": {
+        "path": "Naviguer",
+        "form": {
+            "select_placeholder": "Sélectionner l'index",
+            "submit": "Naviguer"
+        },
+        "prev": "« Précédent",
+        "next": "Suivant »",
+        "search": "Recherche",
+        "back": "Retournez",
+        "noResults": "Aucun index disponible",
+        "noSearchResults": "Cet index n'est plus disponible dans les paramètres d'analyse actuels"
+    },
+    "pinned": {
+        "path": "Documents épinglés",
+        "header": "Vous avez épinglé {{count}} document",
+        "header_plural": "Vous avez épinglé {{count}} documents",
+        "noPins": "Pas encore de documents épinglés",
+        "purge": "Supprimer tout"
+    }
+}

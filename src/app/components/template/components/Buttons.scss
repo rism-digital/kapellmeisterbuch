@@ -1,0 +1,33 @@
+@import 'src/app/components/template/Palette.scss';
+
+.primaryButton {
+
+    &-root {
+        border: none;
+        padding: 1em 2em;
+        background: $action-button-background;
+        cursor: pointer;
+        color: $white;
+        text-transform: uppercase;
+        border-radius: .25rem;
+        outline: none;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+
+        &:hover,
+        &:active {
+            background: $active-action-button-background;
+        }
+
+        &:disabled {
+            background: $light-gray-a;
+            cursor: not-allowed;
+        }
+
+    }   
+
+    &-small {
+        padding: .65em 1.2em;
+        font-size: 80%;
+    }
+
+}

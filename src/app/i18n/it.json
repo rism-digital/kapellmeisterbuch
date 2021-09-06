@@ -1,0 +1,78 @@
+{
+    "common": {
+        "indexes": {
+            "inventory": "Inventario",
+            "composer_names": "Nomi dei compositori",
+            "other_names": "Altri nomi",
+            "original_call_no": "Segnatura originale",
+            "call_no": "Segnatura"
+        },
+        "topMenu": {
+            "pages": {
+                "items": {
+                    "home": "Pagina iniziale",
+                    "about": "A proposito",
+                    "help": "Aiuto"
+                }
+            },
+            "languages": {
+                "label": "Lingue"
+            }
+        }
+    },
+    "search": {
+        "nav": {
+            "count": "Trovati {{count}} risultati"
+        },
+        "form": {
+            "search_placeholder": "Inserisci qui i tuoi termini di ricerca...",
+            "submit": "Ricerca"
+        },
+        "actions": {
+            "go": "Vai"
+        }
+    },
+    "browse": {
+        "form": {
+            "select_placeholder": "Seleziona l'indice da consultare",
+            "submit": "Sfoglia",
+            "loading": "Caricamento.."
+        },
+        "actions": {
+            "go": "Vai"
+        }
+    },
+    "consult": {
+        "head": {
+            "inventory": "Inventario {{inventory}}",
+            "page": "Pagina {{currentPage}}/{{pagesCount}}"
+        },
+        "results": {
+            "item": "Voce",
+            "transcription": "Trascrizione",
+            "no_records": "Nessuna trascrizione presente in questa pagina"
+        },
+        "actions": {
+            "go": "Vai"
+        }
+    },
+    "inventory": {
+        "definitions": {
+            "inventory": "Inventario",
+            "page": "Pagina",
+            "id": "Identificativo",
+            "transcription": "Trascrizione",
+            "composer_names": "Nomi dei compositori",
+            "other_names": "Altri nomi",
+            "holding": "Proprietario",
+            "links": "Collegamenti esterni",
+            "original_call_no": "Segnatura originale",
+            "references": "Riferimenti",
+            "call_no": "Segnatura",
+            "notes": "Note"
+        },
+        "actions": {
+            "consult": "Consulta inventario"
+        }
+    }
+}

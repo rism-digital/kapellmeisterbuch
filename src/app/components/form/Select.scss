@@ -1,0 +1,25 @@
+@import 'src/app/components/template/Palette.scss';
+
+.select {
+    &-root {
+        padding: 0 2px;
+        width: 100%;
+    }
+
+    &-input {
+        width: 100%;
+        background: $action-button-background;
+        border: none;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        color: $white;
+        border-radius: .25rem;
+        outline: none;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+        cursor: pointer;
+
+        option {
+            font-family: 'Lato', Arial, Helvetica, sans-serif;
+        }
+    }
+}

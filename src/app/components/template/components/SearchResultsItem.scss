@@ -1,0 +1,36 @@
+.searchResultsItem {
+    padding: 1em;
+    border-bottom: 1px solid #efefef;
+    align-items: center;
+
+    
+    a {
+        padding: .25rem 0;
+        font-weight: 600;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+    }
+
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    button {
+        display: none;
+    }
+
+    &:hover {
+        background: #f6f6f6;
+        
+        button {
+            display: block;
+        }
+        .icon {
+            display: none
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@import 'src/app/components/template/Palette.scss';
+
+
+.listBox {
+    &-root {
+        border: 1px solid $light-gray-d;
+        border-radius: .25em;
+        margin-bottom: 1em
+    }
+
+    &-header {
+        background: $action-button-background;
+        padding: 1em 1em;
+        color: $white;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-body {
+        max-height: 0;
+        height: auto;
+        padding: 0em 1em;
+        transition: max-height .2s ease-in-out, padding .2s ease-in-out;
+        overflow-y: hidden;
+
+        > div {
+            padding: .25rem;
+            margin-bottom: 1px;
+            border-radius: .25rem;
+
+            &:hover{
+                background: $light-gray-e !important;
+            }
+        }
+    }
+
+    &__collapsed {
+
+        .listBox {
+            &-body {
+                max-height: 500px;
+                padding: 2em 1em;
+            }
+        }
+
+        &-finished {
+            .listBox {
+                &-body {
+                    overflow-y: auto;
+                }
+            }   
+        }
+    }
+}
