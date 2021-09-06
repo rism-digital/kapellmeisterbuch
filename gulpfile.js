@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const getWebpackConfig = require('./webpack.config');
 
-const { webApps, sshConfig } = require('./gulp.kapellmeisterbuch.production.config');
+const { webApps, sshConfig } = require('./gulp.config');
 
 gulp.task('clean', () => {
     return del('./build');
