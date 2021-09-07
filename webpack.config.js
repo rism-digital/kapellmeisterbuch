@@ -94,8 +94,8 @@ module.exports = environment => ({
 
             // here it is the endpoint for remote kapellmeisterbuch json based api server
             JSON_BASE_SERVER: environment.production || useRemoteServer
-                ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')
-                : JSON.stringify('https://rism-kb-search.altibo.club')
+                ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')   // production endpoint
+                : JSON.stringify('https://rism-kb-search.altibo.club')          // staging endpoint
         })
     ]
 });

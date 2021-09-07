@@ -16,6 +16,8 @@ const checkHost = () => {
     }
 };
 
+const isProduction = argv.host === 'production';
+
 const configFile = argv.host === 'production' ? 'gulp.config' : 'gulp.staging.config';
 
 gutil.log(`Using "/${configFile}" for current task`);
@@ -31,7 +33,7 @@ gulp.task('clean', () => {
 gulp.task('build', gulp.series('clean', cb => {
     checkHost();
 
-    const config = getWebpackConfig({ production: true });
+    const config = getWebpackConfig({ production: isProduction });
 
     webpack(config, (err, stats) => {
         if (err) throw new gutil.PluginError('webpack', err);
