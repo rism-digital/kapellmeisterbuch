@@ -3,8 +3,6 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// const production = process.env.NODE_ENV === 'production';
-
 // If you want to use a local server set the useRemoteServer const to false,
 // in that case the system will use the devServer proxy configuration belove, 
 // so please be sure you have onstage-backend installed and running (see https://github.com/rism-ch/onstage-backend) 
@@ -83,13 +81,10 @@ module.exports = environment => ({
         }),
         new webpack.DefinePlugin({
             PRODUCTION: environment.production,
-            DEBUG: false, //!environment.production, // if true it will show the query parameters into console
+            DEBUG: !environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: JSON.stringify('https://iiif.rism.digital/manifest/ch/'),
-            // environment.production || useRemoteServer
-            //     ? JSON.stringify('https://iiif.rism.digital/manifest/ch/')
-            //     : JSON.stringify('https://rism-kb.altibo.club/public/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
@@ -97,6 +92,7 @@ module.exports = environment => ({
                 ? JSON.stringify('http://onstage-search.rism-ch.org')
                 : JSON.stringify(''),
 
+            // here it is the endpoint for remote kapellmeisterbuch json based api server
             JSON_BASE_SERVER: environment.production || useRemoteServer
                 ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')
                 : JSON.stringify('https://rism-kb-search.altibo.club')
