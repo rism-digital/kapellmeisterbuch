@@ -15,7 +15,7 @@ Pull the repository and make sure you have the basic components installed on you
 
 ```bash
 sudo apt install npm gulp
-git clone https://github.com/tibonilab/kapellmeisterbuch
+git clone https://github.com/rism-digital/kapellmeisterbuch
 cd kapellmeisterbuch
 npm install
 ```
@@ -30,6 +30,7 @@ npm start
 ### Backend
 Backend application is a simple NodeJS app which serve API endpoints to retreive dataset. 
 
+#### Installation
 You have to init the server providing those commands:
 
 ```bash
@@ -37,7 +38,8 @@ cd json-adapter
 npm install
 ```
 
-when you have installed all the node modules just run 
+#### Running on local machine
+When you have installed all the node modules just run:
 
 ```bash
 node server.js
@@ -76,7 +78,7 @@ Consider that deploying to the _staging_ env will generate a build in _developme
 
 
 ### Frontend configurations
-Since the data is all retrived from backend application, it is necessary to configure API endpoints and the MAnifest server in `webpack.config.js`.
+Since the data is all retrived from backend application, it is necessary to configure API endpoints and the Manifest server in `webpack.config.js`.
 
 ```js
 DIVA_BASE_MANIFEST_SERVER: JSON.stringify('your-server/manifest-path'),
