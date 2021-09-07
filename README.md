@@ -5,7 +5,7 @@ This repository contains *frontend* and *backend* applications codebase for Kape
 
 
 ## Development
-pull the repository and make sure you have the basic components installed on your machine:
+Pull the repository and make sure you have the basic components installed on your machine:
 
 ```bash
 sudo apt install npm gulp
@@ -37,7 +37,7 @@ when you have installed all the node modules just run
 node server.js
 ```
 
-Your server will respond locally on port `5000`.
+your server will respond locally on port `5000`.
 
 
 ## Deployment
