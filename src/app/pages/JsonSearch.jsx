@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
 
-import NapoliContext from '../context/napoliContext';
+import CurstomContext from '../context/customContext';
 
 import Input from '../components/form/Input.jsx';
 import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
@@ -26,12 +26,12 @@ const getHighlightedText = (text, highlight) => {
     } </span>;
 };
 
-const Inventari = () => {
+const JsonSearch = () => {
 
-    const [searchTerm, setSearchTerm] = useStateWithSession('', 'searchTerm', 'NapoliState');
-    const [highlightTerm, setHighlightTerm] = useStateWithSession('', 'highlightTerm', 'NapoliState');
+    const [searchTerm, setSearchTerm] = useStateWithSession('', 'searchTerm', 'CustomState');
+    const [highlightTerm, setHighlightTerm] = useStateWithSession('', 'highlightTerm', 'CustomState');
 
-    const { searchResults, performSearch, loadingSearch } = useContext(NapoliContext);
+    const { searchResults, performSearch, loadingSearch } = useContext(CurstomContext);
 
     return (
         <Template>
@@ -62,7 +62,7 @@ const Inventari = () => {
                         <div key={key} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '.5em' }}>
                             <div style={{ display: 'flex', justifyContent: 'flex-start', width: 'calc(100% - 100px)' }}>
                                 <div style={{ width: '100px', paddingRight: '1em' }}>
-                                    <h5>{key}</h5>
+                                    <h5>{key + 1}</h5>
                                 </div>
                                 <div style={{ width: 'calc(100% - 200px)' }}>
                                     {getHighlightedText(result.transcription, highlightTerm)}
@@ -78,4 +78,4 @@ const Inventari = () => {
     );
 };
 
-export default Inventari;
+export default JsonSearch;

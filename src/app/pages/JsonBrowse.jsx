@@ -5,7 +5,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
 
-import NapoliContext from '../context/napoliContext';
+import CurstomContext from '../context/customContext';
 
 import Select from '../components/form/Select.jsx';
 import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
@@ -30,13 +30,13 @@ const indexes = () => [
     { value: 'Feasts', label: 'Feasts' },
 ];
 
-const InventariBrowse = () => {
+const JsonBrowse = () => {
 
-    const { performBrowse, browseResults, loadingBrowse, loadRelated, loadingRelated, related } = useContext(NapoliContext);
+    const { performBrowse, browseResults, loadingBrowse, loadRelated, loadingRelated, related } = useContext(CurstomContext);
 
-    const [selectedIndex, setSelectedIndex] = useStateWithSession('', 'selectedIndex', 'NapoliState');
-    const [results, setResults] = useStateWithSession([], 'results', 'NapoliState');
-    const [isButtonDisabled, setIsButtonDisabled] = useState(!/\S/.test(selectedIndex), 'isButtonDisabled', 'NapoliState');
+    const [selectedIndex, setSelectedIndex] = useStateWithSession('', 'selectedIndex', 'CustomState');
+    const [results, setResults] = useStateWithSession([], 'results', 'CustomState');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(!/\S/.test(selectedIndex), 'isButtonDisabled', 'CustomState');
     const [buttonLabel, setButtonLabel] = useState(t('browse.form.submit'));
     // const [related, setRelated] = useState({});
 
@@ -123,4 +123,4 @@ const InventariBrowse = () => {
     );
 };
 
-export default InventariBrowse;
+export default JsonBrowse;

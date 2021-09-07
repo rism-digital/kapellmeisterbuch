@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
 
-import NapoliContext from '../context/napoliContext';
+import CurstomContext from '../context/customContext';
 import { PrimaryClearButtonSmall } from '../components/template/components/Buttons.jsx';
 
 // import Input from '../components/form/Input.jsx';
@@ -28,7 +28,7 @@ const printByKey = (string, key) => {
 
 const Inventario = ({ match }) => {
 
-    const { dataStore, booted } = useContext(NapoliContext);
+    const { dataStore, booted } = useContext(CurstomContext);
 
     const { id } = match.params;
 

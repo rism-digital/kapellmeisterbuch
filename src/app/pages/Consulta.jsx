@@ -4,7 +4,7 @@ import React, {
 import { Link } from 'react-router-dom';
 import Template from '../components/template/Template.jsx';
 
-import NapoliContext from '../context/napoliContext';
+import CurstomContext from '../context/customContext';
 
 import { useStateWithSession } from '../service/serviceStorage';
 
@@ -17,9 +17,9 @@ import { t } from '../i18n/index.js';
 
 const Consulta = ({ match }) => {
 
-    const { dataStore, booted } = useContext(NapoliContext);
+    const { dataStore, booted } = useContext(CurstomContext);
 
-    const [currentPage, setCurrentPage] = useStateWithSession(0, 'currentPage', 'NapoliState');
+    const [currentPage, setCurrentPage] = useStateWithSession(0, 'currentPage', 'CustomState');
 
     const [inited, setInited] = useState(false);
 
