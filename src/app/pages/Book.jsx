@@ -112,15 +112,7 @@ const TestHtml = () => {
             }
         }
 
-        let scrollingPage = parseInt(page.id.replace('CH_E_925_03_', ''), 10) - 3;
-        scrollingPage = scrollingPage >= 0 ? scrollingPage : 0;
-
-        // console.log(`https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_${page.id}`);
         setCurrentPageURI(`https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_${page.id}.tif`);
-
-        // if (scrollingPage !== currentPage) {
-        //     setCurrentPage(scrollingPage);
-        // }
     };
 
     const updateLayout = () => {

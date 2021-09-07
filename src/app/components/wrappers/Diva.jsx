@@ -50,8 +50,6 @@ export default class DivaReact extends Component {
             this.diva && this.props.onPageChangeHandler(this.diva.getActivePageIndex());
         }
 
-        // console.log(nextProps.initialPageURI, this.props.initialPageURI);
-
         if (nextProps.initialPageURI && this.props.initialPageURI !== nextProps.initialPageURI) {
             this.state.loaded && this.diva.gotoPageByURI(nextProps.initialPageURI);
         }
@@ -71,10 +69,9 @@ export default class DivaReact extends Component {
                             enableGotoPage: this.props.enableGotoPage != undefined,
                             enableGridIcon: this.props.enableGridIcon != undefined,
                             enableLinkIcon: this.props.enableLinkIcon != undefined,
+                            zoomLevel: this.props.zoomLevel || 2,
                             ...this.props.enablePlugins != undefined && { plugins: [Diva.PermalinkPlugin] }
                         });
-
-
 
                         if (this.props.onScrollHandler) {
                             Diva.Events.subscribe('ViewerDidScroll', () => this.debounce(() => {
@@ -88,7 +85,6 @@ export default class DivaReact extends Component {
                             this.setState({ loaded: true });
 
                             if (this.props.initialPageURI) {
-                                // console.log(this.props.initialPageURI);
                                 this.diva.gotoPageByURI(this.props.initialPageURI);
                             }
 
