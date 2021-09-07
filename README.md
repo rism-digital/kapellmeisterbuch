@@ -64,7 +64,7 @@ cp DUMMYgulp.config.js gulp.config.js
 cp DUMMYgulp.config.js gulp.staging.config.js
 ```
 
-Next, open your config files and customize them for you needs.
+Next, open your config files and customize them for your needs.
 
 
 The environment target is specified by the *env* parameter. 
