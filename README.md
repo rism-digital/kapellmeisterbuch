@@ -43,11 +43,33 @@ Your server will respond locally on port `5000`.
 ## Deployment
 Deployment requires configuring the gulpfile to connect to the server. The server must be already setup ad configured to have access from the host machine via ssh with key authentication.
 
-### Enviroments
-The gulpfile is designed to automate _staging_ or _production_ deployment using *host* parameter. 
-Consider that deploying to the _stating_ host will upload a build in _development_ mode.
+### Environments
+The gulpfile is designed to automate _staging_ or _production_ deployment. 
 
-### Configurations
+In order to let this work you have to create 2 different gulp configuration files.
+
+```bash
+# Create production config file
+cp DUMMYgulp.config.js gulp.config.js
+
+# Create staging config file
+cp DUMMYgulp.config.js gulp.staging.config.js
+```
+
+Next, open your config files and customize them for you needs.
+
+
+The environment target is specified by the *env* parameter. 
+
+```bash
+npm run deploy -- --env=<env>
+```
+
+Consider that deploying to the _staging_ env will generate a build in _development_ mode.
+
+
+
+### Frontend configurations
 Since the data is all retrived from backend application, it is necessary to configure API endpoints and the MAnifest server in `webpack.config.js`.
 
 ```js
@@ -63,20 +85,20 @@ JSON_BASE_SERVER: environment.production
 To deploy frontend, backend and dataset simply run
 
 ```bash
-npm run deploy -- --host=<host>
+npm run deploy -- --env=<env>
 ```
 
 you can otherwise use one of the following commands to update a peculiar aspect of the application
 
 ```bash
 # Deploy frontend application
-npm run deploy:fronted -- --host=<host>
+npm run deploy:fronted -- --env=<env>
 
 # Deploy backend application
-npm run deploy:backend -- --host=<host>
+npm run deploy:backend -- --env=<env>
 
 # Upload the dataset
-npm run deploy:dataset -- --host=<host>
+npm run deploy:dataset -- --env=<env>
 ```
 
 ### Frontend Apache configuration
