@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+
 import { createMarkup } from '../../model/markdownHelper';
 import GlobalContext from '../../context/globalContext';
 
@@ -7,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 import './MarkdownRenderer.scss';
 
-const linkRenderer = props => {
+export const linkRenderer = props => {
     return props.href.match(/^(https?:)?\/\//)
         ? <a href={props.href} target="_blank" rel="noopener noreferrer">{props.children}</a>
         : <Link to={props.href}>{props.children}</Link>;
@@ -17,12 +20,19 @@ const MarkdownRenderer = ({ filename }) => {
     const { language } = useContext(GlobalContext);
 
     return (
-        <ReactMarkdown
-            source={createMarkup({ filename, language })}
+        <Markdown
             renderers={{ link: linkRenderer }}
-            escapeHtml={false}
-        />
+            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+        >{createMarkup({ filename, language })}</Markdown>
     );
+
+    // return (
+    //     <ReactMarkdown
+    //         source={createMarkup({ filename, language })}
+    //         renderers={{ link: linkRenderer }}
+    //         escapeHtml={false}
+    //     />
+    // );
 };
 
 export default MarkdownRenderer;

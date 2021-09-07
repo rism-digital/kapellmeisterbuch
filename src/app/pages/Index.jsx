@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown/with-html';
+
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+
+import { linkRenderer } from '../components/wrappers/MarkdownRenderer.jsx';
 
 import Template from '../components/template/Template.jsx';
 import { fetchFileData } from '../model/markdownHelper';
@@ -52,7 +57,15 @@ const Index = () => {
     return (
         <Template>
             <div className="markdown">
-                {indexMarkdown ? <ReactMarkdown source={indexMarkdown} escapeHtml={false} /> : defaultView}
+                {
+                    indexMarkdown
+                        ? <Markdown
+                            renderers={{ link: linkRenderer }}
+                            rehypePlugins={[rehypeRaw, rehypeSanitize]}>
+                            {indexMarkdown}
+                        </Markdown>
+                        : defaultView
+                }
             </div>
         </Template>
     );
