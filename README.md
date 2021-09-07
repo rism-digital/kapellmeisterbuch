@@ -31,7 +31,7 @@ npm start
 Backend application is a simple NodeJS app which serve API endpoints to retreive dataset. 
 
 #### Installation
-You have to init the server providing those commands:
+You have to init the server installing the node modules from the `/json-adapter` path:
 
 ```bash
 cd json-adapter
