@@ -1,6 +1,12 @@
 # Kapellmeisterbuch
 
-This repository contains *frontend* and *backend* applications codebase for Kapellmeisterbuch project.
+This repository contains *frontend* and *backend* applications codebase and the whole *dataset* for Kapellmeisterbuch project.
+
+```bash
+src/              # frontend
+json-adapter/     # backend
+public/           # dataset
+```
 
 
 
@@ -37,7 +43,7 @@ when you have installed all the node modules just run
 node server.js
 ```
 
-your server will respond locally on port `5000`.
+and your server will respond locally on port `5000`.
 
 
 ## Deployment
