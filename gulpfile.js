@@ -5,17 +5,32 @@ const gutil = require('gulp-util');
 const sftp = require('gulp-sftp');
 const gssh = require('gulp-ssh');
 const del = require('del');
+const argv = require('yargs').argv;
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const getWebpackConfig = require('./webpack.config');
 
-const { webApps, sshConfig } = require('./gulp.config');
+const checkHost = () => {
+    if (!argv.host || !['staging', 'production'].includes(argv.host)) {
+        throw new Error('\nPlease specify --host parameter for this task!\nYou can choose between "staging" or "production"\n\nnpm run deploy-- --host=<host>\n\n');
+    }
+};
+
+const configFile = argv.host === 'production' ? 'gulp.config' : 'gulp.staging.config';
+
+gutil.log(`Using "/${configFile}" for current task`);
+
+const { webApps, sshConfig } = require(`./${configFile}`);
 
 gulp.task('clean', () => {
+    checkHost();
+
     return del('./build');
 });
 
 gulp.task('build', gulp.series('clean', cb => {
+    checkHost();
+
     const config = getWebpackConfig({ production: true });
 
     webpack(config, (err, stats) => {
@@ -26,6 +41,8 @@ gulp.task('build', gulp.series('clean', cb => {
 }));
 
 gulp.task('deploy-frontend', gulp.series('build', () => {
+    checkHost();
+
     const opts = {
         ...webApps.frontend,
         log: gutil.log
@@ -38,6 +55,8 @@ gulp.task('deploy-frontend', gulp.series('build', () => {
 
 
 gulp.task('pre-deploy-backend', () => {
+    checkHost();
+
     const opts = {
         ...webApps.backend,
         log: gutil.log
@@ -49,6 +68,8 @@ gulp.task('pre-deploy-backend', () => {
 });
 
 gulp.task('deploy-backend', gulp.series('pre-deploy-backend', () => {
+    checkHost();
+
     const ssh = new gssh({ sshConfig });
 
     return ssh
@@ -63,6 +84,8 @@ gulp.task('deploy-backend', gulp.series('pre-deploy-backend', () => {
 }));
 
 gulp.task('deploy-dataset', () => {
+    checkHost();
+
     const opts = {
         ...webApps.dataset,
         log: gutil.log
