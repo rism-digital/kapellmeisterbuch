@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-var data = require('./public/KbIndex.json');
+var data = require('.git/public/KbIndex.json');
 var fulltext = require('./public/KbFulltext.json');
 
 
