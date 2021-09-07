@@ -3,9 +3,9 @@
 This repository contains *frontend* and *backend* applications codebase and the whole *dataset* for Kapellmeisterbuch project.
 
 ```bash
-src/              # frontend
-json-adapter/     # backend
-public/           # dataset
+/src              # frontend
+/json-adapter     # backend
+/public           # dataset
 ```
 
 
