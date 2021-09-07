@@ -24,11 +24,15 @@ const serverAccess = {
 const webApps = {
     frontend: {
         ...serverAccess,
-        remotePath: `${WEB_SERVER_BASE_PATH}/onstage-frontend`
+        remotePath: `${WEB_SERVER_BASE_PATH}/frontend/`
     },
-    adapter: {
+    backend: {
         ...serverAccess,
-        remotePath: `${WEB_SERVER_BASE_PATH}/solr-adapter`
+        remotePath: `${WEB_SERVER_BASE_PATH}/backend/`
+    },
+    dataset: {
+        ...serverAccess,
+        remotePath: `${WEB_SERVER_BASE_PATH}/backend/public/`
     }
 };
 
