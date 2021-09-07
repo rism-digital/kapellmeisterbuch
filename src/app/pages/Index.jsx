@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 
 import { linkRenderer } from '../components/wrappers/MarkdownRenderer.jsx';
 
@@ -61,7 +60,7 @@ const Index = () => {
                     indexMarkdown
                         ? <Markdown
                             renderers={{ link: linkRenderer }}
-                            rehypePlugins={[rehypeRaw, rehypeSanitize]}>
+                            rehypePlugins={[rehypeRaw]}>
                             {indexMarkdown}
                         </Markdown>
                         : defaultView

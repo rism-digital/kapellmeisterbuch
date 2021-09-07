@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 
 import { createMarkup } from '../../model/markdownHelper';
 import GlobalContext from '../../context/globalContext';
@@ -22,17 +21,9 @@ const MarkdownRenderer = ({ filename }) => {
     return (
         <Markdown
             renderers={{ link: linkRenderer }}
-            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+            rehypePlugins={[rehypeRaw]}
         >{createMarkup({ filename, language })}</Markdown>
     );
-
-    // return (
-    //     <ReactMarkdown
-    //         source={createMarkup({ filename, language })}
-    //         renderers={{ link: linkRenderer }}
-    //         escapeHtml={false}
-    //     />
-    // );
 };
 
 export default MarkdownRenderer;
