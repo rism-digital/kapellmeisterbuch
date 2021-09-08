@@ -50,10 +50,10 @@
     "axios": "^0.21.4",
     "diva.js": "6.0.2",
     "lodash.maxby": "4.6.0",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-markdown": "^7.0.1",
-    "react-router-dom": "5.1.2",
+    "react-router-dom": "^5.3.0",
     "rehype-raw": "^6.1.0"
   }
 }
