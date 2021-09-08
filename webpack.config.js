@@ -16,7 +16,9 @@ module.exports = environment => ({
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
+        static: {
+            directory: path.join(__dirname, 'static')
+        },
         historyApiFallback: true,
 
         // here it is the local server configuration
