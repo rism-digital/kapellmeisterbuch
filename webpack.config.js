@@ -13,7 +13,10 @@ module.exports = environment => ({
     mode: environment.production ? 'production' : 'development',
     devtool: environment.production ? false : 'source-map',
     resolve: {
-        modules: [path.resolve(__dirname, 'src'), 'node_modules']
+        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        fallback: {
+            assert: require.resolve('assert/')
+        }
     },
     devServer: {
         static: {
@@ -54,16 +57,16 @@ module.exports = environment => ({
             },
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-                loaders: ['file-loader']
+                loader: 'file-loader'
             },
             {
                 test: /\.(html)$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {
-                        attrs: [':data-src']
-                    }
-                }
+                loader: 'html-loader',
+                // use: {
+                //     options: {
+                //         attrs: [':data-src']
+                //     }
+                // }
             },
             {
                 test: /\.md$/i,
@@ -88,6 +91,9 @@ module.exports = environment => ({
                 : environment.production
                     ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')   // production endpoint
                     : JSON.stringify('https://rism-kb-search.altibo.club')          // staging endpoint
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser'
         })
     ]
 });
