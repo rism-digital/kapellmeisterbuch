@@ -53,7 +53,7 @@ gulp.task('deploy-frontend', gulp.series('build', () => {
     };
 
     return gulp
-        .src('./build/**', { base: './build', buffer: false })
+        .src('build/**', { base: './build', buffer: false })
         .pipe(sftp(opts));
 }));
 
@@ -67,7 +67,7 @@ gulp.task('pre-deploy-backend', () => {
     };
 
     return gulp
-        .src('./json-adapter/*.js*', { base: './json-adapter', buffer: false })
+        .src(['json-adapter/**', '!json-adapter/node_modules', '!json-adapter/node_modules/**'], { base: './json-adapter', buffer: false })
         .pipe(sftp(opts));
 });
 
@@ -79,7 +79,7 @@ gulp.task('deploy-backend', gulp.series('pre-deploy-backend', () => {
     return ssh
         .shell(
             [
-                'cd /var/www/kapellmeisterbuch/backend/',
+                `cd ${webApps.backend.remotePath}`,
                 'npm install',
                 'sudo service apache2 reload'
             ],
@@ -95,10 +95,8 @@ gulp.task('deploy-dataset', () => {
         log: gutil.log
     };
 
-    console.log(opts);
-
     return gulp
-        .src('./dataset/**', { base: './public', buffer: false })
+        .src('dataset/**', { base: './dataset', buffer: false })
         .pipe(sftp(opts));
 });
 
