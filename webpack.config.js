@@ -82,7 +82,7 @@ module.exports = environment => ({
 
             // here it is the endpoint for remote kapellmeisterbuch json based api server
             JSON_BASE_SERVER: environment.dev
-                ? JSON.stringify('') // leave this empty, it would be managed by the dev server proxy (see above)
+                ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy (see above)
                 : environment.production
                     ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')   // production endpoint
                     : JSON.stringify('https://rism-kb-search.altibo.club')          // staging endpoint
