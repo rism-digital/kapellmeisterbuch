@@ -103,7 +103,10 @@ gulp.task('deploy-dataset', () => {
 gulp.task('deploy', gulp.parallel('deploy-dataset', 'deploy-backend', 'deploy-frontend'));
 
 gulp.task('webpack-dev-server', () => {
-    const config = getWebpackConfig({ production: false });
+    const config = getWebpackConfig({
+        production: false,
+        dev: true
+    });
     const compiler = webpack(config);
 
     new webpackDevServer(compiler, config.devServer).listen(8080, 'localhost', function (err) {

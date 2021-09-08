@@ -5,14 +5,20 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 5000;
 
+const getArgs = require('./model/argvHelper.js');
+
+
 // Enable CORS for everybody
 app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var data = require('./public/KbIndex.json');
-var fulltext = require('./public/KbFulltext.json');
+const args = getArgs();
+const path = args.env && args.env == 'dev' ? '../' : './';
+
+var data = require(`${path}public/KbIndex.json`);
+var fulltext = require(`${path}public/KbFulltext.json`);
 
 app.get('/api/browse', (req, res) => {
 
