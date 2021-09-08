@@ -28,7 +28,7 @@ npm start
 ```
 
 ### Backend
-Backend application is a simple NodeJS app which serve API endpoints to retreive dataset. 
+Backend application is a simple NodeJS app which serve API endpoints to retrieve dataset. 
 
 #### Installation
 You have to init the server installing the node modules from the `/json-adapter` path:
@@ -39,10 +39,10 @@ npm install
 ```
 
 #### Running on local machine
-When you have installed all the node modules just run:
+When all the node modules are installed, from the `/json-adapter` path just run:
 
 ```bash
-node server.js
+node server.js --env=dev
 ```
 
 and your server will respond locally on port `5000`.
@@ -78,14 +78,16 @@ Consider that deploying to the _staging_ env will generate a build in _developme
 
 
 ### Frontend configurations
-Since the data is all retrived from backend application, it is necessary to configure API endpoints and the Manifest server in `webpack.config.js`.
+Since the data is all retrieved from backend application, it is necessary to configure API endpoints and the Manifest server in `webpack.config.js`.
 
 ```js
 DIVA_BASE_MANIFEST_SERVER: JSON.stringify('your-server/manifest-path'),
 
-JSON_BASE_SERVER: environment.production
-    ? JSON.stringify('production-backend-api-endpoint')
-    : JSON.stringify('staging-backend-api-endpoint')
+JSON_BASE_SERVER: : environment.dev
+    ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy (see above)
+    : environment.production 
+        ? JSON.stringify('production-backend-api-endpoint')
+        : JSON.stringify('staging-backend-api-endpoint')
 ```
 
 ### Deployment tasks
@@ -100,7 +102,7 @@ you can otherwise use one of the following commands to update a peculiar aspect 
 
 ```bash
 # Deploy frontend application
-npm run deploy:fronted -- --env=<env>
+npm run deploy:frontend -- --env=<env>
 
 # Deploy backend application
 npm run deploy:backend -- --env=<env>
@@ -116,7 +118,7 @@ Apache requires no special configuration, excepy for a Rewrite to make the paths
 VirtualHost ip:80>
     ServerName my-host.com
 
-    # Tell Apache and Passenger where your app's code directory is
+    # Tell Apache where your app's code directory is
     DocumentRoot /var/www/kapellmeisterbuck/frontend
 
     # Relax Apache security settings
@@ -157,11 +159,10 @@ sudo apt-get install libapache2-mod-passenger passenger
 
 And just create the virtual host:
 
-Create a virtual host for apache:
 
 ```apache
 <VirtualHost ip:80>
-    ServerName search-server-url
+    ServerName production-backend-api-endpoint
 
     # Tell Apache and Passenger where your app's code directory is
     DocumentRoot /var/www/kapellmeisterbuch/backend
