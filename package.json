@@ -48,8 +48,8 @@
   },
   "dependencies": {
     "axios": "^0.21.4",
-    "diva.js": "6.0.2",
-    "lodash.maxby": "4.6.0",
+    "diva.js": "^6.0.2",
+    "lodash.maxby": "^4.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^7.0.1",
