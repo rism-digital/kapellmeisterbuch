@@ -5,7 +5,7 @@ This repository contains *frontend* and *backend* applications codebase and the 
 ```bash
 /src              # frontend
 /json-adapter     # backend
-/public           # dataset
+/dataset          # dataset
 ```
 
 
@@ -49,7 +49,7 @@ and your server will respond locally on port `5000`.
 
 
 ## Deployment
-Deployment requires configuring the gulpfile to connect to the server. The server must be already setup ad configured to have access from the host machine via ssh with key authentication.
+Deployment requires configuring the gulpfile to connect to the server. The server must be already setup and configured to have access from the host machine via ssh with key authentication.
 
 ### Environments
 The gulpfile is designed to automate _staging_ or _production_ deployment. 
@@ -84,7 +84,7 @@ Since the data is all retrieved from backend application, it is necessary to con
 DIVA_BASE_MANIFEST_SERVER: JSON.stringify('your-server/manifest-path'),
 
 JSON_BASE_SERVER: : environment.dev
-    ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy (see above)
+    ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy
     : environment.production 
         ? JSON.stringify('production-backend-api-endpoint')
         : JSON.stringify('staging-backend-api-endpoint')
