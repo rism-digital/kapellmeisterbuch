@@ -12,13 +12,15 @@ const getWebpackConfig = require('./webpack.config');
 
 const checkHost = () => {
     if (!argv.env || !['staging', 'production'].includes(argv.env)) {
-        throw new Error('\nPlease specify --host parameter for this task!\nYou can choose between "staging" or "production"\n\nnpm run deploy-- --host=<host>\n\n');
+        throw new Error('\nPlease specify --env parameter for this task!\nYou can choose between "staging" or "production"\n\nnpm run deploy-- --env=<env>\n\n');
     }
 };
 
 const isProduction = argv.env === 'production';
 
-const configFile = argv.env === 'production' ? 'gulp.config' : 'gulp.staging.config';
+const configFile = isProduction
+    ? 'gulp.config'
+    : 'gulp.staging.config';
 
 gutil.log(`Using "/${configFile}" for current task`);
 
