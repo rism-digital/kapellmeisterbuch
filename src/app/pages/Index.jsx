@@ -59,7 +59,7 @@ const Index = () => {
                 {
                     indexMarkdown
                         ? <Markdown
-                            renderers={{ link: linkRenderer }}
+                            components={{ link: linkRenderer }}
                             rehypePlugins={[rehypeRaw]}>
                             {indexMarkdown}
                         </Markdown>

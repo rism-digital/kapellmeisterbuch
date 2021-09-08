@@ -20,7 +20,7 @@ const MarkdownRenderer = ({ filename }) => {
 
     return (
         <Markdown
-            renderers={{ link: linkRenderer }}
+            components={{ link: linkRenderer }}
             rehypePlugins={[rehypeRaw]}
         >{createMarkup({ filename, language })}</Markdown>
     );
