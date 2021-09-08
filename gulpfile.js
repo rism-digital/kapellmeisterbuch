@@ -109,8 +109,12 @@ gulp.task('webpack-dev-server', () => {
     });
     const compiler = webpack(config);
 
-    new webpackDevServer(compiler, config.devServer).listen(8080, 'localhost', function (err) {
-        if (err) throw new gutil.PluginError('webpack-dev-server', err);
-        gutil.log('[webpack-dev-server]', 'http://localhost:8080');
+    const devServerOptions = Object.assign({}, config.devServer, {
+        host: 'localhost',
+        port: 8080
     });
+
+    const devServer = new webpackDevServer(devServerOptions, compiler);
+
+    (async () => await devServer.start())();
 });

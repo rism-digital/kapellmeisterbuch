@@ -34,8 +34,7 @@ module.exports = environment => ({
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
-        },
-        open: true
+        }
     },
     module: {
         rules: [
