@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import KbTagged from '../../../public/KbTagged.html';
+import KbTagged from '../../../dataset/KbTagged.html';
 
 import Template from '../components/template/Template.jsx';
 

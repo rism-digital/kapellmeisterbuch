@@ -32,7 +32,7 @@ const webApps = {
     },
     dataset: {
         ...serverAccess,
-        remotePath: `${WEB_SERVER_BASE_PATH}/backend/public/`
+        remotePath: `${WEB_SERVER_BASE_PATH}/backend/dataset/`
     }
 };
 

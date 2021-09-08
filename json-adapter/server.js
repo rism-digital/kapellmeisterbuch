@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const args = getArgs();
 const path = args.env && args.env == 'dev' ? '../' : './';
 
-var data = require(`${path}public/KbIndex.json`);
-var fulltext = require(`${path}public/KbFulltext.json`);
+var data = require(`${path}dataset/KbIndex.json`);
+var fulltext = require(`${path}dataset/KbFulltext.json`);
 
 app.get('/api/browse', (req, res) => {
 

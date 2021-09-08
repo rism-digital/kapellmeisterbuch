@@ -96,7 +96,7 @@ gulp.task('deploy-dataset', () => {
     console.log(opts);
 
     return gulp
-        .src('./public/**', { base: './public', buffer: false })
+        .src('./dataset/**', { base: './public', buffer: false })
         .pipe(sftp(opts));
 });
 
