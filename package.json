@@ -1,7 +1,7 @@
 {
-  "name": "onstage-frontend",
+  "name": "kapellmeisterbuch",
   "version": "0.0.1",
-  "description": "onStage frontend",
+  "description": "RISM Kapellmeisterbuch application",
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rism-ch/onstage-frontend.git"
+    "url": "git+https://github.com/rism-digital/kapellmeisterbuch.git"
   },
   "author": "",
   "license": "ISC",
