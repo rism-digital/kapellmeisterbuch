@@ -112,7 +112,7 @@ npm run deploy:dataset -- --env=<env>
 ```
 
 ### Frontend Apache configuration
-Apache requires no special configuration, excepy for a Rewrite to make the paths availabe in react
+Apache requires no special configuration, except for a Rewrite to make the paths availabe in react
 
 ```apache
 VirtualHost ip:80>
