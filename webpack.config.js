@@ -88,7 +88,7 @@ module.exports = environment => ({
             JSON_BASE_SERVER: environment.dev
                 ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy (see above)
                 : environment.production
-                    ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')   // production endpoint
+                    ? JSON.stringify('//kapellmeisterbuch-api.rism.digital')        // production endpoint
                     : JSON.stringify('https://rism-kb-search.altibo.club')          // staging endpoint
         }),
         new webpack.ProvidePlugin({
