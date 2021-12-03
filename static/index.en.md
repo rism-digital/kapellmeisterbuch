@@ -39,8 +39,8 @@ Images: courtesy of P. Lukas Helg OSB (Einsiedeln)
 
 <div>
 	<table border="0" cellspacing="35px" style="margin: 0 auto;text-align:center"><tbody><tr><td align="center">
-			<a href="http://www.rism-ch.org" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/kmb/static/logo-RISM-large-ch.png" width="80px" border="0"></a>
+			<a href="http://www.rism-ch.org" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/main/static/logo-RISM-large-ch.png" width="80px" border="0"></a>
 		</td><td align="center">
-			<a href="http://www.snf.ch/it" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/kmb/static/SNF_RGB_I_POS.png" width="200px" border="0"></a>
+			<a href="http://www.snf.ch/it" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/main/static/SNF_RGB_I_POS.png" width="200px" border="0"></a>
 		</td></tr></tbody></table>
 </div>
