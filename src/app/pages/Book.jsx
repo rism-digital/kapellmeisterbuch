@@ -11,6 +11,7 @@ import Select from '../components/form/Select.jsx';
 import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
 
 import { useDidMount } from '../hooks/useDidMount';
+import { toImageUri, toPageId } from '../model/iiif';
 
 const anchorClickHandler = (id) => {
     const highlighted = document.getElementsByClassName('highlight');
@@ -74,7 +75,7 @@ const TestHtml = () => {
 
             for (let item of pagebreaks) {
 
-                const offset = Math.abs(item.offsetTop - (scrollTop - boxHeight / 2));
+                const offset = Math.abs(item.offsetTop - (scrollTop + boxHeight / 2));
 
                 if (min >= offset) {
                     min = offset;
@@ -82,7 +83,7 @@ const TestHtml = () => {
                 }
             }
 
-            page && setInitialPageURI(`https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_${page.id}.tif`);
+            page && setInitialPageURI(toImageUri(page.id));
         }
 
     };
@@ -104,7 +105,7 @@ const TestHtml = () => {
 
         for (let item of pagebreaks) {
 
-            const offset = Math.abs(item.offsetTop - (scrollTop - boxHeight / 2));
+            const offset = Math.abs(item.offsetTop - (scrollTop + boxHeight / 2));
 
             if (min >= offset) {
                 min = offset;
@@ -112,7 +113,7 @@ const TestHtml = () => {
             }
         }
 
-        setCurrentPageURI(`https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_${page.id}.tif`);
+        setCurrentPageURI(toImageUri(page.id));
     };
 
     const updateLayout = () => {
@@ -217,7 +218,10 @@ const TestHtml = () => {
                         initialPageURI={initialPageURI}
                         onLoad={count => { generateSelectPageOptions(count); }}
                         onPageChangeHandler={setCurrentPage}
-                        onScrollHandler={index => anchorClickHandler(index.replace('https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_', '').slice(0, -4))}
+                        onScrollHandler={imageUri => {
+                            const pageId = toPageId(imageUri);
+                            pageId && anchorClickHandler(pageId);
+                        }}
                         enableLinkIcon
                         enablePlugins
                     />

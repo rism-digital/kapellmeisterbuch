@@ -1,4 +1,4 @@
-@import 'src/app/components/template/Palette.scss';
+@use '../template/Palette' as *;
 
 .input {
     &-root {

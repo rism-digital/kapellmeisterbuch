@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useStateWithSession } from '../service/serviceStorage';
 
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
 
@@ -14,16 +14,6 @@ import Collapsible from '../components/template/components/Collapsible.jsx';
 import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
 import { t } from '../i18n';
-// import { browse } from '../model/Solr';
-
-// const indexes = () => [
-//     { value: 'inventory', label: t('common.indexes.inventory') },
-//     { value: 'composer_names', label: t('common.indexes.composer_names') },
-//     { value: 'other_names', label: t('common.indexes.other_names') },
-//     { value: 'original_call_no', label: t('common.indexes.original_call_no') },
-//     { value: 'call_no', label: t('common.indexes.call_no') },
-// ];
-
 const indexes = () => [
     { value: 'Composers', label: 'Composers' },
     { value: 'Dates', label: 'Dates' },
@@ -35,18 +25,8 @@ const JsonBrowse = () => {
     const { performBrowse, browseResults, loadingBrowse, loadRelated, loadingRelated, related } = useContext(CurstomContext);
 
     const [selectedIndex, setSelectedIndex] = useStateWithSession('', 'selectedIndex', 'CustomState');
-    const [results, setResults] = useStateWithSession([], 'results', 'CustomState');
-    const [isButtonDisabled, setIsButtonDisabled] = useState(!/\S/.test(selectedIndex), 'isButtonDisabled', 'CustomState');
-    const [buttonLabel, setButtonLabel] = useState(t('browse.form.submit'));
-    // const [related, setRelated] = useState({});
-
-    // const appendRelated = (group) => {
-    //     setRelated({ ...related, ...group });
-    // };
-
     const selectChangeHandler = value => {
         const testValue = /\S/.test(value);
-        setIsButtonDisabled(!testValue);
         testValue && setSelectedIndex(value);
     };
 
@@ -71,14 +51,11 @@ const JsonBrowse = () => {
                         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         <h4>Loading data, please wait..</h4>
                     </FlexWrapper>
-                    : browseResults && browseResults/* .slice(0, 3) */.map((e, key) => (
+                    : browseResults && browseResults.map((e, key) => (
                         <React.Fragment key={e.name}>
                             <Collapsible key={e.name} header={(<h3 className="collapsible-header-caption" style={{ borderBottom: '1px solid #e8e8e8', display: 'block', width: '100%', paddingBottom: '.5em' }}>
                                 {e.name}
                             </h3>)}>
-                                {/* <h3 className="collapsible-header-caption" style={{ borderBottom: '1px solid #e8e8e8', display: 'block', width: '100%', paddingBottom: '.5em' }}>
-                                {e.name}
-                            </h3> */}
                                 {e.group && Array.isArray(e.group) && e.group.map(linked => (
                                     <Collapsible
                                         key={linked.name}

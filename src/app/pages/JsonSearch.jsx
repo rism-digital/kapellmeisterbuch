@@ -9,18 +9,17 @@ import CurstomContext from '../context/customContext';
 
 import Input from '../components/form/Input.jsx';
 import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
-import ActionLink from '../components/template/components/ActionLink.jsx';
-
 import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
 import { t } from '../i18n';
 
+const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const getHighlightedText = (text, highlight) => {
-    // console.log(text, highlight);
-    // Split on highlight term and include term into parts, ignore case
-    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    const terms = highlight.trim().split(/\s+/).filter(Boolean).map(escapeRegExp);
+    const parts = terms.length ? text.split(new RegExp(`(${terms.join('|')})`, 'gi')) : [text];
     return <span> {parts.map((part, i) =>
-        <span key={i} style={part.toLowerCase() === highlight.toLowerCase() ? { background: 'yellow' } : {}}>
+        <span key={i} style={terms.some(term => part.toLowerCase() === term.toLowerCase()) ? { background: 'yellow' } : {}}>
             {part}
         </span>)
     } </span>;

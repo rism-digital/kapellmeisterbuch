@@ -1,4 +1,5 @@
 import { t } from '../../i18n/';
+import { toPageId } from '../../model/iiif';
 
 export default class PermalinkPlugin {
   constructor(core) {
@@ -8,7 +9,12 @@ export default class PermalinkPlugin {
   }
 
   handleClick() {
-    let url = document.location.origin + '/book#' + this.core.publicInstance.getCurrentPageURI().replace('https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_', '').slice(0, -4);
+    const pageId = toPageId(this.core.publicInstance.getCurrentPageURI());
+    const url = pageId && `${document.location.origin}/book#${pageId}`;
+
+    if (!url) {
+      return;
+    }
 
     // make a transparent textarea
     var textArea = document.createElement('textarea');
